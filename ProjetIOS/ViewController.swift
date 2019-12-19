@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.ConnectedLabel.isHidden = true
+        self.updateUI()
     }
     
     private func updateUI(){
@@ -37,7 +37,27 @@ class ViewController: UIViewController {
             }
         }
     }
-
-
+    
+    @IBAction func onPressButton(_ sender: UIButton) {
+        if Blockstack.shared.isUserSignedIn(){
+            print("deja connecté -> deconnection")
+            Blockstack.shared.signUserOut()
+            self.updateUI()
+        }
+        else {
+            print("Non connecté -> connection")
+            Blockstack.shared.signIn(redirectURI: URL(string: "https://heuristic-brown-7a88f8.netlify.com/redirect.html")!,
+            appDomain: URL(string: "https://heuristic-brown-7a88f8.netlify.com")!) { authResult in
+               switch authResult {
+               case .success(let userData):
+                   print("Sign in SUCCESS", userData.profile?.name as Any)
+                   self.updateUI()
+               case .cancelled:
+                   print("Sign in CANCELLED")
+               case .failed(let error):
+                   print("Sign in FAILED, error: ", error ?? "n/a")
+               }
+            }
+        }
+    }
 }
-
