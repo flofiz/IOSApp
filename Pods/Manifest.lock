@@ -1,0 +1,32 @@
+PODS:
+  - Blockstack (1.0.1):
+    - CryptoSwift (= 0.15.0)
+    - PromisesSwift
+    - STRegex
+  - CryptoSwift (0.15.0)
+  - PromisesObjC (1.2.8)
+  - PromisesSwift (1.2.8):
+    - PromisesObjC (= 1.2.8)
+  - STRegex (2.1.0)
+
+DEPENDENCIES:
+  - Blockstack
+
+SPEC REPOS:
+  trunk:
+    - Blockstack
+    - CryptoSwift
+    - PromisesObjC
+    - PromisesSwift
+    - STRegex
+
+SPEC CHECKSUMS:
+  Blockstack: 8dadf3fb26408d2a102690a8e45fc1068b403ab5
+  CryptoSwift: 769f58a9e89f64e8796c2e59ce5f002dc81a2438
+  PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  PromisesSwift: 37bad6f4daddb02f7c9c531efe91e8b21c13ee2f
+  STRegex: dfa420d93d8c1402956233b3879ec1fc14b45fbe
+
+PODFILE CHECKSUM: d01ac8fb5b54646f7ea72bd2f420eb3e3d8f5c8c
+
+COCOAPODS: 1.8.1
