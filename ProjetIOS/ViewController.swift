@@ -13,6 +13,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var SignInButton: UIButton!
     @IBOutlet weak var ConnectedLabel: UILabel!
+    @IBOutlet weak var sendButton: UIButton!
+    @IBOutlet weak var textToSend: UITextView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -38,6 +40,12 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func onSendPreesed(_ sender: UIButton) {
+        putFile(file: "test.txt", data: "text")
+        ConnectedLabel.text = getFile(file: "test.txt")
+        
+    }
+    
     @IBAction func onPressButton(_ sender: UIButton) {
         if Blockstack.shared.isUserSignedIn(){
             print("deja connecté -> deconnection")
@@ -57,6 +65,34 @@ class ViewController: UIViewController {
                case .failed(let error):
                    print("Sign in FAILED, error: ", error ?? "n/a")
                }
+            }
+        }
+    }
+    
+    private func getFile(file: String) -> String
+    {
+        var rep = ""
+        Blockstack.shared.getFile(at: file, verify: true) { response, error in
+        if error != nil {
+            print("get file error")
+        } else {
+            rep = (response as? DecryptedValue)?.plainText ?? "Invalid content"
+            print("get file success \(rep)")
+        }
+        }
+        return rep
+    }
+    
+    private func putFile(file: String, data: String)
+    {
+        Blockstack.shared.putFile(to: file, text: data, sign: true, signingKey: nil){
+            (publicURL, error) in
+            if error != nil {
+                print("put file error")
+            }
+            else
+            {
+                print("put file success \(publicURL ?? "na")")
             }
         }
     }
