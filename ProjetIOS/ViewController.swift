@@ -11,89 +11,16 @@ import Blockstack
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var SignInButton: UIButton!
-    @IBOutlet weak var ConnectedLabel: UILabel!
-    @IBOutlet weak var sendButton: UIButton!
-    @IBOutlet weak var textToSend: UITextView!
+    var contact: [Contact]  = [Contact(name: "flo dev", id: "mrfarhenheit.id.blockstack"), Contact(name: "ian", id: "ian.id.blockstack"), Contact(name: "dorine", id: "dorine.id.blockstack")]
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.updateUI()
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        <#code#>
+    }
     
     private func updateUI(){
-        DispatchQueue.main.async {
-            if Blockstack.shared.isUserSignedIn(){
-                let retrievedUserData = Blockstack.shared.loadUserData()
-                print(retrievedUserData?.profile?.name as Any)
-                let name = retrievedUserData?.profile?.name ?? "sans nom"
-                self.ConnectedLabel?.text = "Bonjours, \(name)"
-                self.ConnectedLabel?.isHidden = false
-                self.SignInButton?.setTitle("Sign Out", for: .normal)
-                print("updated")
-            }
-            else {
-                self.ConnectedLabel?.text = "Non connecté"
-                self.SignInButton?.setTitle("Sign In", for: .normal)
-                print("signed out")
-            }
-        }
-    }
-    
-    @IBAction func onSendPreesed(_ sender: UIButton) {
-        putFile(file: "test.txt", data: "text")
-        ConnectedLabel.text = getFile(file: "test.txt")
-        
-    }
-    
-    @IBAction func onPressButton(_ sender: UIButton) {
-        if Blockstack.shared.isUserSignedIn(){
-            print("deja connecté -> deconnection")
-            Blockstack.shared.signUserOut()
-            self.updateUI()
-        }
-        else {
-            print("Non connecté -> connection")
-            Blockstack.shared.signIn(redirectURI: URL(string: "https://heuristic-brown-7a88f8.netlify.com/redirect.html")!,
-            appDomain: URL(string: "https://heuristic-brown-7a88f8.netlify.com")!) { authResult in
-               switch authResult {
-               case .success(let userData):
-                   print("Sign in SUCCESS", userData.profile?.name as Any)
-                   self.updateUI()
-               case .cancelled:
-                   print("Sign in CANCELLED")
-               case .failed(let error):
-                   print("Sign in FAILED, error: ", error ?? "n/a")
-               }
-            }
-        }
-    }
-    
-    private func getFile(file: String) -> String
-    {
-        var rep = ""
-        Blockstack.shared.getFile(at: file, verify: true) { response, error in
-        if error != nil {
-            print("get file error")
-        } else {
-            rep = (response as? DecryptedValue)?.plainText ?? "Invalid content"
-            print("get file success \(rep)")
-        }
-        }
-        return rep
-    }
-    
-    private func putFile(file: String, data: String)
-    {
-        Blockstack.shared.putFile(to: file, text: data, sign: true, signingKey: nil){
-            (publicURL, error) in
-            if error != nil {
-                print("put file error")
-            }
-            else
-            {
-                print("put file success \(publicURL ?? "na")")
-            }
-        }
     }
 }
