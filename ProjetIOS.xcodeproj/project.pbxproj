@@ -22,6 +22,8 @@
 		DD53804C23C8B3E700D20C98 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD53804B23C8B3E700D20C98 /* ViewController2.swift */; };
 		DD53804E23C8B4E100D20C98 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD53804D23C8B4E100D20C98 /* Contact.swift */; };
 		DD53805023C8B4EF00D20C98 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD53804F23C8B4EF00D20C98 /* Conversation.swift */; };
+		DD53805223C8D29200D20C98 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD53805123C8D29200D20C98 /* ContactCell.swift */; };
+		DD53805423C8D5C300D20C98 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = DD53805323C8D5C300D20C98 /* user.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +69,8 @@
 		DD53804B23C8B3E700D20C98 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		DD53804D23C8B4E100D20C98 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		DD53804F23C8B4EF00D20C98 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		DD53805123C8D29200D20C98 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
+		DD53805323C8D5C300D20C98 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user.png; path = ../../../Desktop/user.png; sourceTree = "<group>"; };
 		EED15D96320D72CE563F7623 /* Pods-ProjetIOS-ProjetIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOS-ProjetIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ProjetIOS-ProjetIOSUITests/Pods-ProjetIOS-ProjetIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF027EDB2C8678406396B90E /* Pods-ProjetIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOSTests.release.xcconfig"; path = "Target Support Files/Pods-ProjetIOSTests/Pods-ProjetIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,11 +157,13 @@
 				DD3FC09C23AB7C5100A4027D /* Main.storyboard */,
 				DD53804D23C8B4E100D20C98 /* Contact.swift */,
 				DD53804F23C8B4EF00D20C98 /* Conversation.swift */,
+				DD53805323C8D5C300D20C98 /* user.png */,
+				DD53804923C8A3F000D20C98 /* BlockstackFunction.swift */,
 				DD53804B23C8B3E700D20C98 /* ViewController2.swift */,
 				DD3FC09F23AB7C5200A4027D /* Assets.xcassets */,
 				DD3FC0A123AB7C5200A4027D /* LaunchScreen.storyboard */,
 				DD3FC0A423AB7C5200A4027D /* Info.plist */,
-				DD53804923C8A3F000D20C98 /* BlockstackFunction.swift */,
+				DD53805123C8D29200D20C98 /* ContactCell.swift */,
 			);
 			path = ProjetIOS;
 			sourceTree = "<group>";
@@ -291,6 +297,7 @@
 			files = (
 				DD3FC0A323AB7C5200A4027D /* LaunchScreen.storyboard in Resources */,
 				DD3FC0A023AB7C5200A4027D /* Assets.xcassets in Resources */,
+				DD53805423C8D5C300D20C98 /* user.png in Resources */,
 				DD3FC09E23AB7C5100A4027D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD53805223C8D29200D20C98 /* ContactCell.swift in Sources */,
 				DD53804E23C8B4E100D20C98 /* Contact.swift in Sources */,
 				DD53804C23C8B3E700D20C98 /* ViewController2.swift in Sources */,
 				DD3FC09B23AB7C5100A4027D /* ViewController.swift in Sources */,
