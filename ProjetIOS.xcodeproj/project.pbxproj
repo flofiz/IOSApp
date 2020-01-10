@@ -18,6 +18,10 @@
 		DD3FC0A323AB7C5200A4027D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD3FC0A123AB7C5200A4027D /* LaunchScreen.storyboard */; };
 		DD3FC0AE23AB7C5200A4027D /* ProjetIOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FC0AD23AB7C5200A4027D /* ProjetIOSTests.swift */; };
 		DD3FC0B923AB7C5200A4027D /* ProjetIOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD3FC0B823AB7C5200A4027D /* ProjetIOSUITests.swift */; };
+		DD53804A23C8A3F000D20C98 /* BlockstackFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD53804923C8A3F000D20C98 /* BlockstackFunction.swift */; };
+		DD53804C23C8B3E700D20C98 /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD53804B23C8B3E700D20C98 /* ViewController2.swift */; };
+		DD53804E23C8B4E100D20C98 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD53804D23C8B4E100D20C98 /* Contact.swift */; };
+		DD53805023C8B4EF00D20C98 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD53804F23C8B4EF00D20C98 /* Conversation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		DD3FC0B423AB7C5200A4027D /* ProjetIOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProjetIOSUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD3FC0B823AB7C5200A4027D /* ProjetIOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjetIOSUITests.swift; sourceTree = "<group>"; };
 		DD3FC0BA23AB7C5200A4027D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD53804923C8A3F000D20C98 /* BlockstackFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockstackFunction.swift; sourceTree = "<group>"; };
+		DD53804B23C8B3E700D20C98 /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
+		DD53804D23C8B4E100D20C98 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		DD53804F23C8B4EF00D20C98 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		EED15D96320D72CE563F7623 /* Pods-ProjetIOS-ProjetIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOS-ProjetIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ProjetIOS-ProjetIOSUITests/Pods-ProjetIOS-ProjetIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF027EDB2C8678406396B90E /* Pods-ProjetIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOSTests.release.xcconfig"; path = "Target Support Files/Pods-ProjetIOSTests/Pods-ProjetIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,9 +151,13 @@
 				DD3FC09823AB7C5100A4027D /* SceneDelegate.swift */,
 				DD3FC09A23AB7C5100A4027D /* ViewController.swift */,
 				DD3FC09C23AB7C5100A4027D /* Main.storyboard */,
+				DD53804D23C8B4E100D20C98 /* Contact.swift */,
+				DD53804F23C8B4EF00D20C98 /* Conversation.swift */,
+				DD53804B23C8B3E700D20C98 /* ViewController2.swift */,
 				DD3FC09F23AB7C5200A4027D /* Assets.xcassets */,
 				DD3FC0A123AB7C5200A4027D /* LaunchScreen.storyboard */,
 				DD3FC0A423AB7C5200A4027D /* Info.plist */,
+				DD53804923C8A3F000D20C98 /* BlockstackFunction.swift */,
 			);
 			path = ProjetIOS;
 			sourceTree = "<group>";
@@ -407,8 +419,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD53804E23C8B4E100D20C98 /* Contact.swift in Sources */,
+				DD53804C23C8B3E700D20C98 /* ViewController2.swift in Sources */,
 				DD3FC09B23AB7C5100A4027D /* ViewController.swift in Sources */,
 				DD3FC09723AB7C5100A4027D /* AppDelegate.swift in Sources */,
+				DD53805023C8B4EF00D20C98 /* Conversation.swift in Sources */,
+				DD53804A23C8A3F000D20C98 /* BlockstackFunction.swift in Sources */,
 				DD3FC09923AB7C5100A4027D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
