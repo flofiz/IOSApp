@@ -24,6 +24,7 @@
 		DD53805023C8B4EF00D20C98 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD53804F23C8B4EF00D20C98 /* Conversation.swift */; };
 		DD53805223C8D29200D20C98 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD53805123C8D29200D20C98 /* ContactCell.swift */; };
 		DD53805423C8D5C300D20C98 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = DD53805323C8D5C300D20C98 /* user.png */; };
+		DDC1CDAF23D5C0AD007BF9AA /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC1CDAE23D5C0AD007BF9AA /* Tools.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 		DD53804F23C8B4EF00D20C98 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		DD53805123C8D29200D20C98 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		DD53805323C8D5C300D20C98 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user.png; path = ../../../Desktop/user.png; sourceTree = "<group>"; };
+		DDC1CDAE23D5C0AD007BF9AA /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		EED15D96320D72CE563F7623 /* Pods-ProjetIOS-ProjetIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOS-ProjetIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ProjetIOS-ProjetIOSUITests/Pods-ProjetIOS-ProjetIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF027EDB2C8678406396B90E /* Pods-ProjetIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOSTests.release.xcconfig"; path = "Target Support Files/Pods-ProjetIOSTests/Pods-ProjetIOSTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +156,7 @@
 				DD3FC09623AB7C5000A4027D /* AppDelegate.swift */,
 				DD3FC09823AB7C5100A4027D /* SceneDelegate.swift */,
 				DD3FC09A23AB7C5100A4027D /* ViewController.swift */,
+				DDC1CDAE23D5C0AD007BF9AA /* Tools.swift */,
 				DD3FC09C23AB7C5100A4027D /* Main.storyboard */,
 				DD53804D23C8B4E100D20C98 /* Contact.swift */,
 				DD53804F23C8B4EF00D20C98 /* Conversation.swift */,
@@ -432,6 +435,7 @@
 				DD3FC09B23AB7C5100A4027D /* ViewController.swift in Sources */,
 				DD3FC09723AB7C5100A4027D /* AppDelegate.swift in Sources */,
 				DD53805023C8B4EF00D20C98 /* Conversation.swift in Sources */,
+				DDC1CDAF23D5C0AD007BF9AA /* Tools.swift in Sources */,
 				DD53804A23C8A3F000D20C98 /* BlockstackFunction.swift in Sources */,
 				DD3FC09923AB7C5100A4027D /* SceneDelegate.swift in Sources */,
 			);

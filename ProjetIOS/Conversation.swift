@@ -10,10 +10,12 @@ import Foundation
 import Blockstack
 class Conversation{
     var messages:[Message]
+    var myMessages:[Message]
     var name:String
     var id: String
     
-    struct Message {
+    
+    struct Message: Codable {
         var name:String
         var message:String
         var date: Date
@@ -23,22 +25,42 @@ class Conversation{
         self.name = name
         self.id = id
         self.messages = []
+        self.myMessages = []
         Blockstack.shared.getFile(at: "\(self.name).json", username:"\(self.name).id.blockstack"){
             response, error in
             if error != nil {
                 self.messages = []
             }
             else {
-                self.messages = [Message(name: "ian", message: "message", date: Date())]
+                let decoder = JSONDecoder()
+                self.messages = try! [decoder.decode(Message.self, from: response as! Data)]
+            }
+        }
+        Blockstack.shared.getFile(at: "\(self.name).id.blockstack.json"){
+            response, error in
+            if error != nil {
+                self.messages = []
+            }
+            else {
+                let decoder = JSONDecoder()
+                self.myMessages = try! [decoder.decode(Message.self, from: response as! Data)]
             }
         }
     }
     
-    func json(from object:Any) -> String? {
-        guard let data = try? JSONSerialization.data(withJSONObject: object, options: []) else {
-            return nil
+    func sendMessage(message: Message){
+        messages.append(message)
+        let encoder = JSONEncoder()
+        let data = try! encoder.encode(myMessages)
+        guard let dataMessages = String(data: data,encoding: .utf8) else { return }
+        Blockstack.shared.putFile(to: "\(self.name).id.blockstack.json", text: dataMessages, sign: true, signingKey: nil){
+            (publicUrl, error) in
+            if(error != nil){
+                print("put file error")
+            }else{
+                print("put file succes")
+            }
         }
-        return String(data: data, encoding: String.Encoding.utf8)
     }
     
     

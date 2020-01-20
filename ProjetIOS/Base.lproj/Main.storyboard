@@ -101,7 +101,10 @@
                                             <constraint firstAttribute="height" constant="30" id="0MB-ta-bmC"/>
                                             <constraint firstAttribute="width" constant="40" id="1WW-Z1-iTY"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="magnifyingglass" catalog="system"/>
+                                        <state key="normal" title="Button" image="Image"/>
+                                        <connections>
+                                            <action selector="onSignInPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ukP-DH-PJE"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfC-38-Qik">
                                         <rect key="frame" x="354" y="0.0" width="20" height="30"/>
@@ -109,7 +112,10 @@
                                             <constraint firstAttribute="width" constant="20" id="J21-hh-WP9"/>
                                             <constraint firstAttribute="height" constant="30" id="wdV-0z-NLX"/>
                                         </constraints>
-                                        <state key="normal" title="Button" image="text.justify" catalog="system"/>
+                                        <state key="normal" title="Button" image="plus" catalog="system"/>
+                                        <connections>
+                                            <action selector="onAddContactPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rca-W5-N5A"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -135,7 +141,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="addButton" destination="PfC-38-Qik" id="ddK-I4-jUR"/>
                         <outlet property="contactTableView" destination="ZSQ-wk-9sP" id="pIB-TL-HSF"/>
+                        <outlet property="signInButton" destination="VEx-pT-7gN" id="yAG-Lb-gZ7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -145,13 +153,13 @@
         <!--View Controller2-->
         <scene sceneID="8HY-fB-wAV">
             <objects>
-                <viewController id="HSj-4n-9pM" customClass="ViewController2" customModule="ProjetIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="HSj-4n-9pM" customClass="ViewController2" customModule="ProjetIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="veB-Na-QMq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gX0-le-2oJ">
-                                <rect key="frame" x="20" y="0.0" width="374" height="40"/>
+                                <rect key="frame" x="20" y="44" width="374" height="40"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cJC-sJ-kMw">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -159,6 +167,9 @@
                                             <constraint firstAttribute="width" constant="40" id="bMn-Vs-7KL"/>
                                         </constraints>
                                         <state key="normal" image="arrow.left" catalog="system"/>
+                                        <connections>
+                                            <segue destination="XDg-2B-qYB" kind="unwind" identifier="conv2list" unwindAction="unwindToMainVC:" id="4Gs-KC-Lw1"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHe-ia-zk3">
                                         <rect key="frame" x="40" y="0.0" width="334" height="40"/>
@@ -176,7 +187,7 @@
                                 </constraints>
                             </stackView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5zG-zZ-4A2">
-                                <rect key="frame" x="20" y="50" width="374" height="758"/>
+                                <rect key="frame" x="20" y="94" width="374" height="768"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recu" id="r1l-Gh-qhX">
@@ -248,15 +259,19 @@
                         <viewLayoutGuide key="safeArea" id="ASM-FP-Cx8"/>
                     </view>
                     <navigationItem key="navigationItem" id="sMv-jt-Wqz"/>
+                    <connections>
+                        <outlet property="returnButton" destination="cJC-sJ-kMw" id="yDD-iF-QXR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qcV-Jz-BPo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="XDg-2B-qYB" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="889.85507246376824" y="137.94642857142856"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Image" width="13.333333015441895" height="13.333333015441895"/>
         <image name="arrow.left" catalog="system" width="64" height="48"/>
-        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
-        <image name="text.justify" catalog="system" width="64" height="50"/>
+        <image name="plus" catalog="system" width="64" height="56"/>
     </resources>
 </document>

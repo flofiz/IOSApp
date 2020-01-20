@@ -7,3 +7,7 @@
 //
 
 import Foundation
+struct ContactInfo: Codable {
+    var name: String
+    var id: String
+}

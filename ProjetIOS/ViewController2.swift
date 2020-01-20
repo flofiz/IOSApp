@@ -10,13 +10,12 @@ import UIKit
 
 class ViewController2: UIViewController {
 
+    @IBOutlet weak var returnButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-    
-
     /*
     // MARK: - Navigation
 
