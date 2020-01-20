@@ -29,11 +29,16 @@ class Conversation{
         Blockstack.shared.getFile(at: "\(self.name).json", username:"\(self.name).id.blockstack"){
             response, error in
             if error != nil {
-                self.messages = []
+               print("conv error")
+               self.messages = []
             }
             else {
-                let decoder = JSONDecoder()
-                self.messages = try! [decoder.decode(Message.self, from: response as! Data)]
+                
+                if(response != nil)
+               {
+                   let decoder = JSONDecoder()
+                   self.messages = try! [decoder.decode(Message.self, from: response as! Data)]
+               }
             }
         }
         Blockstack.shared.getFile(at: "\(self.name).id.blockstack.json"){
@@ -42,8 +47,11 @@ class Conversation{
                 self.messages = []
             }
             else {
-                let decoder = JSONDecoder()
-                self.myMessages = try! [decoder.decode(Message.self, from: response as! Data)]
+                if(response != nil)
+                {
+                    let decoder = JSONDecoder()
+                    self.myMessages = try! [decoder.decode(Message.self, from: response as! Data)]
+                }
             }
         }
     }

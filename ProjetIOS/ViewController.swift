@@ -64,6 +64,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                 self.contact.append(Contact(name: nameTextField.text!, id: idTextField.text!))
                 let encoder = JSONEncoder()
                 let newContactList = try! String(data: encoder.encode(self.contactList), encoding: .utf8)
+                print(newContactList!)
                 Blockstack.shared.putFile(to: "contact.json", text: newContactList!, sign: true, signingKey: nil){
                     (publicUrl, error) in
                     if(error != nil){
@@ -72,7 +73,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                         print("put contact succes")
                     }
                 }
-                
+                self.updateUI()
             }
         }))
         self.present(addContact, animated: true, completion: nil)
@@ -90,18 +91,26 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     private func updateUI(){
+
+        self.contactTableView.reloadData()
+        print("update")
         if Blockstack.shared.isUserSignedIn()
         {
-            Blockstack.shared.getFile(at: "contact.json"){
+            Blockstack.shared.getFile(at: "contact.json", verify: false){
                 response, error in
                 if error != nil{
-                    let decoder = JSONDecoder()
-                    self.contactList = [try! decoder.decode(ContactInfo.self, from: response as! Data)]
-                    for person in self.contactList{
-                        self.contact.append(Contact(name: person.name, id: person.id))
-                    }
-                }else{
+                    print("update error")
                     self.contact = []
+                }else{
+                    print("no error")
+                    if response != nil{
+                        print("response non nul")
+                        let decoder = JSONDecoder()
+                        self.contactList = [try! decoder.decode(ContactInfo.self, from: response as! Data)]
+                        for person in self.contactList{
+                            self.contact.append(Contact(name: person.name, id: person.id))
+                        }
+                    }
                 }
             }
             self.contactTableView.reloadData()
