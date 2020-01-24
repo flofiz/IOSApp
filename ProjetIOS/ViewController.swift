@@ -15,6 +15,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     var contactList: [ContactInfo] = [];
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
+    let filename = "NewContact.json"
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,7 +40,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         contactTableView.dataSource = self
-        self.updateUI()
+        self.initContact()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -65,15 +66,15 @@ class ViewController: UIViewController, UITableViewDataSource {
                 let encoder = JSONEncoder()
                 let newContactList = try! String(data: encoder.encode(self.contactList), encoding: .utf8)
                 print(newContactList!)
-                Blockstack.shared.putFile(to: "contact.json", text: newContactList!, sign: true, signingKey: nil){
-                    (publicUrl, error) in
+                Blockstack.shared.putFile(to: self.filename, text: newContactList!, sign: true, signingKey: nil){
+                    (publicURL, error) in
                     if(error != nil){
                         print("put contact error")
                     }else{
-                        print("put contact succes")
+                        print("put file success \(publicURL ?? "NA")")
                     }
                 }
-                self.updateUI()
+                self.contactTableView.reloadData()
             }
         }))
         self.present(addContact, animated: true, completion: nil)
@@ -91,31 +92,36 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     private func updateUI(){
-
-        self.contactTableView.reloadData()
-        print("update")
+        
+    }
+    
+    private func initContact()
+    {
+        self.contact = []
+        self.contactList = []
         if Blockstack.shared.isUserSignedIn()
         {
-            Blockstack.shared.getFile(at: "contact.json", verify: false){
+            Blockstack.shared.getFile(at: self.filename, verify: true){
                 response, error in
                 if error != nil{
-                    print("update error")
                     self.contact = []
                 }else{
-                    print("no error")
                     if response != nil{
-                        print("response non nul")
                         let decoder = JSONDecoder()
-                        self.contactList = [try! decoder.decode(ContactInfo.self, from: response as! Data)]
+                        let text = (response as? DecryptedValue)?.plainText
+                        print(text!)
+                        let data = text?.data(using: .utf8)
+                        self.contactList = try! decoder.decode([ContactInfo].self, from: data!)
                         for person in self.contactList{
                             self.contact.append(Contact(name: person.name, id: person.id))
+                            print("pass")
                         }
+                         self.contactTableView.reloadData()
                     }
                 }
             }
-            self.contactTableView.reloadData()
+           
         }
-        
     }
     
     @IBAction func onSignInPressed(_ sender: UIButton) {
@@ -123,20 +129,24 @@ class ViewController: UIViewController, UITableViewDataSource {
         {
             print("Sign Out")
             Blockstack.shared.signUserOut()
+            self.contact = []
+            self.contactList = []
+            self.contactTableView.reloadData()
         }else{
             print("Sign In")
-            Blockstack.shared.signIn(redirectURI: URL(string: "https://heuristic-brown-7a88f8.netlify.com/redirect.html")!, appDomain: URL(string: "https://heuristic-brown-7a88f8.netlify.com")!){
+            Blockstack.shared.signIn(redirectURI: URL(string: "https://heuristic-brown-7a88f8.netlify.com/redirect.html")!, appDomain: URL(string: "https://heuristic-brown-7a88f8.netlify.com")!, scopes: [.storeWrite, .publishData]){
                 authResult in
                 switch authResult {
                 case .success(let userData):
                     print("sign in success", userData.profile?.name as Any)
-                    self.updateUI()
+                    self.initContact()
                 case .cancelled:
                     print("Sign in cancelled")
                 case .failed(let error):
                     print("sign in failed", error ?? "n/a")
                 }
             }
+            
         }
     }
     
