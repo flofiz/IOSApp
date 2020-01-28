@@ -16,6 +16,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var signInButton: UIButton!
     let filename = "NewContact.json"
+    var name = ""
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,7 +44,13 @@ class ViewController: UIViewController, UITableViewDataSource {
         self.initContact()
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        guard let convController = segue.destination as? ViewController2,
+            let index = contactTableView.indexPathForSelectedRow?.row
+            else {
+                return
+        }
+        convController.contact = contact[index]
+        convController.name = name
     }
     
     @IBAction func onAddContactPressed(_ sender: Any) {
@@ -129,6 +136,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         {
             print("Sign Out")
             Blockstack.shared.signUserOut()
+            self.name = ""
             self.contact = []
             self.contactList = []
             self.contactTableView.reloadData()
@@ -139,6 +147,7 @@ class ViewController: UIViewController, UITableViewDataSource {
                 switch authResult {
                 case .success(let userData):
                     print("sign in success", userData.profile?.name as Any)
+                    self.name = (userData.profile?.name)!
                     self.initContact()
                 case .cancelled:
                     print("Sign in cancelled")

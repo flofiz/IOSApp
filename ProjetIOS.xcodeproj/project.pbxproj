@@ -24,6 +24,8 @@
 		DD53805023C8B4EF00D20C98 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD53804F23C8B4EF00D20C98 /* Conversation.swift */; };
 		DD53805223C8D29200D20C98 /* ContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD53805123C8D29200D20C98 /* ContactCell.swift */; };
 		DD53805423C8D5C300D20C98 /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = DD53805323C8D5C300D20C98 /* user.png */; };
+		DD5D5FAC23DED19000E46374 /* ReceiveCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5D5FAB23DED19000E46374 /* ReceiveCell.swift */; };
+		DD5D5FB023DED31300E46374 /* SendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5D5FAF23DED31300E46374 /* SendCell.swift */; };
 		DDC1CDAF23D5C0AD007BF9AA /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC1CDAE23D5C0AD007BF9AA /* Tools.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +74,8 @@
 		DD53804F23C8B4EF00D20C98 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		DD53805123C8D29200D20C98 /* ContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCell.swift; sourceTree = "<group>"; };
 		DD53805323C8D5C300D20C98 /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user.png; path = ../../../Desktop/user.png; sourceTree = "<group>"; };
+		DD5D5FAB23DED19000E46374 /* ReceiveCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveCell.swift; sourceTree = "<group>"; };
+		DD5D5FAF23DED31300E46374 /* SendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCell.swift; sourceTree = "<group>"; };
 		DDC1CDAE23D5C0AD007BF9AA /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		EED15D96320D72CE563F7623 /* Pods-ProjetIOS-ProjetIOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOS-ProjetIOSUITests.debug.xcconfig"; path = "Target Support Files/Pods-ProjetIOS-ProjetIOSUITests/Pods-ProjetIOS-ProjetIOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		FF027EDB2C8678406396B90E /* Pods-ProjetIOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ProjetIOSTests.release.xcconfig"; path = "Target Support Files/Pods-ProjetIOSTests/Pods-ProjetIOSTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,6 +171,8 @@
 				DD3FC0A123AB7C5200A4027D /* LaunchScreen.storyboard */,
 				DD3FC0A423AB7C5200A4027D /* Info.plist */,
 				DD53805123C8D29200D20C98 /* ContactCell.swift */,
+				DD5D5FAB23DED19000E46374 /* ReceiveCell.swift */,
+				DD5D5FAF23DED31300E46374 /* SendCell.swift */,
 			);
 			path = ProjetIOS;
 			sourceTree = "<group>";
@@ -432,8 +438,10 @@
 				DD53805223C8D29200D20C98 /* ContactCell.swift in Sources */,
 				DD53804E23C8B4E100D20C98 /* Contact.swift in Sources */,
 				DD53804C23C8B3E700D20C98 /* ViewController2.swift in Sources */,
+				DD5D5FAC23DED19000E46374 /* ReceiveCell.swift in Sources */,
 				DD3FC09B23AB7C5100A4027D /* ViewController.swift in Sources */,
 				DD3FC09723AB7C5100A4027D /* AppDelegate.swift in Sources */,
+				DD5D5FB023DED31300E46374 /* SendCell.swift in Sources */,
 				DD53805023C8B4EF00D20C98 /* Conversation.swift in Sources */,
 				DDC1CDAF23D5C0AD007BF9AA /* Tools.swift in Sources */,
 				DD53804A23C8A3F000D20C98 /* BlockstackFunction.swift in Sources */,

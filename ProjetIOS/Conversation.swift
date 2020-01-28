@@ -41,7 +41,7 @@ class Conversation{
                }
             }
         }
-        Blockstack.shared.getFile(at: "\(self.name).id.blockstack.json"){
+        Blockstack.shared.getFile(at: "\(self.name).id.blockstack.json", verify: true){
             response, error in
             if error != nil {
                 self.messages = []
@@ -50,7 +50,13 @@ class Conversation{
                 if(response != nil)
                 {
                     let decoder = JSONDecoder()
-                    self.myMessages = try! [decoder.decode(Message.self, from: response as! Data)]
+                    let text = (response as? DecryptedValue)?.plainText
+                    print(text)
+                    if(text != "" && text != nil)
+                    {
+                        let data = text?.data(using: .utf8)
+                        self.myMessages = try! decoder.decode([Message].self, from: data!)
+                    }
                 }
             }
         }
