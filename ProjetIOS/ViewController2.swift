@@ -39,22 +39,36 @@ class ViewController2: UIViewController, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "sended", for: indexPath) as! SendCell
-        
         let row = indexPath.row
-        let actual = contact?.conversation.myMessages[row]
+        let actual = contact?.conversation.allMessages[row]
+       
+        if(actual?.name == self.name)
+        {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "sended", for: indexPath) as! SendCell
+            cell.sendMessageLabel.text = actual?.message
+            return cell
+        }
+        else
+        {
+            let  cell = tableView.dequeueReusableCell(withIdentifier: "received", for: indexPath) as! ReceiveCell
+            cell.receiveMessageLabel.text = actual?.message
+            return cell
+
+        }
         // Configure the cell’s contents.
-        cell.sendMessageLabel.text = actual?.message
+        
             
-        return cell
+        
     }
     
     @IBAction func onSendPressed(_ sender: Any) {
         if(messageTextField.text != "" && messageTextField.text != nil)
         {
             contact?.conversation.sendMessage(message: Conversation.Message(name: self.name! ,message: messageTextField.text! , date: Date()))
+            contact?.conversation.update()
             self.messagesTableView.reloadData()
         }
+        messageTextField.text = ""
     }
     
 }

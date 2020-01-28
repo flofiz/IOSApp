@@ -11,9 +11,11 @@ import Blockstack
 class Conversation{
     var messages:[Message]
     var myMessages:[Message]
+    var allMessages:[Message]
     var name:String
     var id: String
     
+
     
     struct Message: Codable {
         var name:String
@@ -26,6 +28,7 @@ class Conversation{
         self.id = id
         self.messages = []
         self.myMessages = []
+        self.allMessages = []
         Blockstack.shared.getFile(at: "\(self.name).json", username:"\(self.name).id.blockstack"){
             response, error in
             if error != nil {
@@ -60,6 +63,8 @@ class Conversation{
                 }
             }
         }
+        allMessages = messages + myMessages
+        allMessages.sort(by: { $0.date > $1.date })
     }
     
     func sendMessage(message: Message){
@@ -75,6 +80,12 @@ class Conversation{
                 print("put file succes")
             }
         }
+    }
+    
+    func update()
+    {
+        allMessages = messages + myMessages
+        allMessages.sort(by: { $0.date > $1.date })
     }
     
     
