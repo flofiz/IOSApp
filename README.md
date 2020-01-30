@@ -1,4 +1,4 @@
-# IOSApp
+# Projet App IOS: Tchat
 <p>Ce programme est un tchat utilisant blockstack, une blockchaine basé sur bitcoin.
 Le principe est que chaque utilisateur utilise un cloud personnel appelé gaia.</p>
 <p>Blockstack de disposant pas de socket, quand un utilisateur envoi un message il actualise la conversation dans un fichier json au nom du destinataire. Un conversation est donc le rassemblement de 2 tableaux contenant les messages recus et envoyé.
