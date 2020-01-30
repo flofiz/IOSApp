@@ -7,11 +7,11 @@ Le bouton de connection permet aussi de se connecter. Les contacts n'apparaissen
 <p>On peut ensuite clicker sur un contact et lui envoyer un message.
 La page de conversation contiens le nom du contact en haut et en bas un zone de saisie et un bouton d'envoie.
 Les messages sont théoriquement bien envoyés (d'après les retours des fonctions) mais ne s'affichent pas, il y a une erreur au niveau de la récupération des messages.</p>
-<p>Pour vous connecter:
-id: progmobile.id.blockstack
-mdp:esirem2019
-clef:
-ZCrvhzdfRYZ1foFpedyeNIGoY/GUYKXQUp1sdZ8kVOHp63wVHl9lBldgsfHzsG6N/JwdI8bwBjJE/YTRybMIExo+baj3e7UXubt4uKThZ3I=
-clef de recuperation:
-quote sentence garment portion theme volcano view abandon danger sign basket tool</p>
-cette derniere clef est plus simple a entrer et vous permettra de changer le mdp en cas de probleme.
+Pour vous connecter:
+* id: progmobile.id.blockstack
+* mdp:esirem2019
+* clef:
+* ZCrvhzdfRYZ1foFpedyeNIGoY/GUYKXQUp1sdZ8kVOHp63wVHl9lBldgsfHzsG6N/JwdI8bwBjJE/YTRybMIExo+baj3e7UXubt4uKThZ3I=
+* clef de recuperation:
+* quote sentence garment portion theme volcano view abandon danger sign basket tool
+<p>cette derniere clef est plus simple a entrer et vous permettra de changer le mdp en cas de probleme.</p>
