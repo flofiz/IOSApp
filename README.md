@@ -10,7 +10,7 @@ Les messages sont théoriquement bien envoyés (d'après les retours des fonctio
 Pour vous connecter:
 id: progmobile.id.blockstack
 mdp:esirem2019
-clef:
+clef: \n
 ZCrvhzdfRYZ1foFpedyeNIGoY/GUYKXQUp1sdZ8kVOHp63wVHl9lBldgsfHzsG6N/JwdI8bwBjJE/YTRybMIExo+baj3e7UXubt4uKThZ3I=
 clef de recuperation:
 quote sentence garment portion theme volcano view abandon danger sign basket tool
