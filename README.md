@@ -12,8 +12,8 @@ Pour vous connecter:
   <li>id: progmobile.id.blockstack</li>
   <li>mdp:esirem2019</li>
   <li>clef:</li>
-<li>ZCrvhzdfRYZ1foFpedyeNIGoY/GUYKXQUp1sdZ8kVOHp63wVHl9lBldgsfHzsG6N/JwdI8bwBjJE/YTRybMIExo+baj3e7UXubt4uKThZ3I=</li>
-  <li>lef de recuperation:</li>
-  <li>quote sentence garment portion theme volcano view abandon danger sign basket tool</li>
+ZCrvhzdfRYZ1foFpedyeNIGoY/GUYKXQUp1sdZ8kVOHp63wVHl9lBldgsfHzsG6N/JwdI8bwBjJE/YTRybMIExo+baj3e7UXubt4uKThZ3I=
+  <li>clef de recuperation:
+  quote sentence garment portion theme volcano view abandon danger sign basket tool</li>
   </ul>
 <p>cette derniere clef est plus simple a entrer et vous permettra de changer le mdp en cas de probleme.</p>
